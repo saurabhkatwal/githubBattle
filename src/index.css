@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
 }
 
 code {
@@ -14,4 +15,79 @@ code {
 button.active{
   background-color: #000;
   color: #fff;
+}
+.card ul{
+  list-style-type: none;
+  padding: 0;
+  width: 80%;
+  margin: auto;
+}
+ul{
+  list-style-type: none;
+}
+.cards{
+  display: grid;
+  gap:10px;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.card img{
+  width: 120px;
+}
+.content{
+  width: 1100px;
+  margin: auto;
+}
+.card{
+  text-align: center;
+  background-color: #ebebeb;
+  padding: 10px;
+  
+}
+.card ul{
+  text-align: left;
+}
+.card ul li{
+  padding: 5px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.card ul li i{
+  width: 30px;
+}
+.nav1{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+.nav1 ul{
+  display: flex;
+  column-gap: 20px;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.night{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+.buttons{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.buttons button{
+  padding: 0;
+  background-color: #fff;
+  border: none;
+  font-size: 18px;
+}
+h1{
+  font-weight: normal;
 }

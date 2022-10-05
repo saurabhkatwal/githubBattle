@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-
+import Card from './Card'
 export default class Cards extends Component {
   render() {
+   
     return (
-      <div>
-        
-      </div>
-    )
+      <div className='cards'>
+        {this.props.data.map((obj,index)=>{
+            return <Card obj={obj} index={index+1}/>
+        })}
+      </div>  )  
+    
   }
+
 }

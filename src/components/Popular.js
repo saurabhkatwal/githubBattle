@@ -6,7 +6,7 @@ export default class Popular extends Component {
     return (
       <div className="popular">
         <Buttons toggleActive={this.props.toggleActive} activeButton={this.props.activeButton}/>
-        <Content/>
+        <Content data={this.props.data}/>
       </div>
     )
   }

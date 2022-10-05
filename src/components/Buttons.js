@@ -4,14 +4,14 @@ export default class Buttons extends Component {
     changeStyles=(text)=>{
         if(text===this.props.activeButton){
             return {
-                backgroundColor:"black",
-                color:"white"
+                color:"rgb(187, 46, 31)",
+                fontWeight:"bold"
             }
         }
     }
   render() {
     return (
-      <div>
+      <div className='buttons'>
         <button onClick={this.props.toggleActive} style={this.changeStyles("all")}>All</button>
         <button onClick={this.props.toggleActive} style={this.changeStyles("javascript")}>JavaScript</button>
         <button onClick={this.props.toggleActive} style={this.changeStyles("ruby")}>Ruby</button>

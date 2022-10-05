@@ -4,7 +4,7 @@ export default class Layout extends Component {
   render() {
     return (
         <>
-      <nav>
+      <nav className='nav1'>
         <ul>
           <li>
             <Link to="/">Popular</Link>
@@ -13,7 +13,7 @@ export default class Layout extends Component {
             <Link to="/battle">Battle</Link>
           </li>
         </ul>
-        <span>Night mode</span>
+        <div className='night'><i class="fa-solid fa-lightbulb fa-2x"></i></div>
       </nav>
 
       <Outlet />
