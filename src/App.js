@@ -11,9 +11,28 @@ export default class App extends Component {
     super(props);
     this.state={
       activeButton:"all",
-      fetcheddata:[]
+      fetcheddata:[],
+      player1:"",
+      player2:"",
+      form1Empty:true,
+      form2Empty:true
     }
   }
+  handleChange=(e)=>{
+    let formName=e.target.parentElement.parentElement.className;
+    console.log(formName)
+    if(e.target.value===""){
+      if(formName==="One")
+        this.setState({form1Empty:true})
+      else
+        this.setState({form2Empty:true})
+    }
+    else{
+      if(formName==="One")
+        this.setState({form1Empty:false})
+      else
+        this.setState({form2Empty:false})
+    }}
   toggleActive=(e)=>{
     this.fetchData(e.target.textContent.toLowerCase())
     this.setState({activeButton:e.target.textContent.toLowerCase()})
@@ -39,7 +58,7 @@ this.fetchData(this.state.activeButton)
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Popular activeButton={this.state.activeButton} toggleActive={this.toggleActive} data={this.state.fetcheddata}/>}/>
-            <Route path="battle" element={<Battle/>}/>
+            <Route path="battle" element={<Battle handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
             <Route path="*" element={<NoPage/>}/>
           </Route>
         </Routes>

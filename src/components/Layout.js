@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import { Link,Outlet } from 'react-router-dom'
+import { NavLink,Outlet } from 'react-router-dom'
 export default class Layout extends Component {
+  NavLinkStyles=({isActive})=>{
+    return {
+      fontWeight:isActive?"bold":"normal",
+      color:isActive?"rgb(187, 46, 31)":"#000"
+    }
+  }
   render() {
     return (
         <>
       <nav className='nav1'>
         <ul>
           <li>
-            <Link to="/">Popular</Link>
+            <NavLink style={this.NavLinkStyles}to="/">Popular</NavLink>
           </li>
           <li>
-            <Link to="/battle">Battle</Link>
+            <NavLink style={this.NavLinkStyles}to="/battle">Battle</NavLink>
           </li>
         </ul>
         <div className='night'><i class="fa-solid fa-lightbulb fa-2x"></i></div>

@@ -91,3 +91,72 @@ a{
 h1{
   font-weight: normal;
 }
+a.active{
+  color: rgb(187, 46, 31);
+  font-weight: bold;
+}
+a.inactive{
+  color: #000;
+  font-weight: normal;
+}
+.instruction-card{
+  background-color:rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+.instruction-cards{
+  display: flex;
+  justify-content: center;
+  column-gap: 100px;
+}
+.instructions h1{
+  text-align: center;
+}
+.instructions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 450px;
+}
+.input-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputs{
+  display: flex;
+  column-gap: 50px;
+  width: 900px;
+  justify-content: center;
+}
+.form input[type=text]{
+  padding: 8px;
+  width: 100%;
+}
+.form button[type=submit]{
+padding: 10px;
+text-transform: uppercase;
+letter-spacing: .25em;
+border-radius: 3px;
+border: none;
+font-size: 16px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+text-decoration: none;
+max-width: 200px;
+}
+.form-input{
+  display: flex;
+}
+.battle-input{
+  width: 100%;
+}
+.input-info{
+  padding: 50px;
+}
+form button{
+  background-color: #000;
+  color: #fff;
+}
