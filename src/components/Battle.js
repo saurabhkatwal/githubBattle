@@ -5,7 +5,7 @@ import InputInfo from './InputInfo'
 export default class Battle extends Component {
   render() {
     return (
-      <div className='battle'>
+      <div className={this.props.night?("battle night"):("battle")}>
         <Instructions night={this.props.night}/>
         <InputInfo
         night={this.props.night} 

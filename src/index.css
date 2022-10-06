@@ -66,15 +66,20 @@ ul{
   display: flex;
   column-gap: 20px;
 }
+.nav1 a{
+  color: #000;
+}
 a{
   text-decoration: none;
-  color: #000;
+  color: #fff;
+  cursor: pointer;
 }
 .night{
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 50px;
+  cursor: pointer;
 }
 .buttons{
   width: 90%;
@@ -106,7 +111,7 @@ a.inactive{
 }
 .instruction-cards{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   column-gap: 100px;
 }
 .instructions h1{
@@ -127,7 +132,7 @@ a.inactive{
 .inputs{
   display: flex;
   column-gap: 50px;
-  width: 900px;
+  /* width: 850px; */
   justify-content: center;
 }
 .form input[type=text]{
@@ -181,10 +186,11 @@ button:disabled{
 }
 .result{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  column-gap: 100px;
   align-items: center;
-  height: 80vh;
-  width: 70%;
+  height: 90vh;
+  /* width: 70%; */
   margin: auto;
 }
 .result ul{
@@ -228,4 +234,49 @@ button:disabled{
 }
 a.toggle-night{
   color: #fff;
+}
+.buttons a{
+  color: #000;
+}
+a.n-t{
+  color: #fff;
+}
+div.input-info.night{
+  background-color: #000;
+}
+div.input-info.night label{
+  color: #fff;
+}
+.input-info.night{
+  color: #fff;
+  width: 100%;
+  /* transform: translateX(-20%); */
+}
+div.battle.night{
+  background-color: #000;
+  flex-direction: column;
+  width: 100%;
+}
+.modal.night{
+  background-color: rgb(114,114,114);
+}
+div.instructions.night{
+  background-color: #000;
+  color: #fff;
+}
+div.battle-btn.night a{
+  background-color: rgb(114,114,114);
+}
+div.result.night{
+  background-color: #000;
+  color: #fff;
+}
+div.reset-btn.night{
+  background-color: #000;
+}
+div.reset-btn.night a{
+  background-color: rgb(114,114,114);
+}
+div.result.night>div{
+  background-color: rgb(114,114,114);
 }

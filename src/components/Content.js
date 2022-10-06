@@ -5,7 +5,7 @@ export default class Content extends Component {
     return (
       <div className='content'>
         {/* {console.log(this.props.data)} */}
-        <Cards data={this.props.data}/>
+        <Cards night={this.props.night} data={this.props.data}/>
       </div>
     )
   }

@@ -6,7 +6,7 @@ export default class Cards extends Component {
     return (
       <div className='cards'>
         {this.props.data.map((obj,index)=>{
-            return <Card obj={obj} index={index+1}/>
+            return <Card night={this.props.night} obj={obj} index={index+1}/>
         })}
       </div>  )  
     

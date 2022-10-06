@@ -3,7 +3,7 @@ import "./css/modal.css"
 export default class UserModal extends Component {
   render() {
     return (
-      <div className='modal'>
+      <div className={this.props.night?("modal night"):("modal")}>
         <div className="user-info">
             <div className="img">
             <img src={this.props.userData.avatar_url} alt='' />

@@ -8,16 +8,23 @@ export default class Buttons extends Component {
                 fontWeight:"bold"
             }
         }
+        else{
+          if(this.props.night){
+            return {
+              color:"#fff"
+            }
+          }
+        }
     }
   render() {
     return (
       <div className='buttons'>
-        <button onClick={this.props.toggleActive} style={this.changeStyles("all")}>All</button>
-        <button onClick={this.props.toggleActive} style={this.changeStyles("javascript")}>JavaScript</button>
-        <button onClick={this.props.toggleActive} style={this.changeStyles("ruby")}>Ruby</button>
-        <button onClick={this.props.toggleActive} style={this.changeStyles("java")}>Java</button>
-        <button onClick={this.props.toggleActive} style={this.changeStyles("css")}>CSS</button>
-        <button onClick={this.props.toggleActive} style={this.changeStyles("python")}>Python</button>
+        <a className={this.props.night?("n-t"):("")}onClick={this.props.toggleActive} style={this.changeStyles("all")}>All</a>
+        <a onClick={this.props.toggleActive} style={this.changeStyles("javascript")}>JavaScript</a>
+        <a onClick={this.props.toggleActive} style={this.changeStyles("ruby")}>Ruby</a>
+        <a onClick={this.props.toggleActive} style={this.changeStyles("java")}>Java</a>
+        <a onClick={this.props.toggleActive} style={this.changeStyles("css")}>CSS</a>
+        <a onClick={this.props.toggleActive} style={this.changeStyles("python")}>Python</a>
         <h3></h3>
       </div>
     )

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Instructions extends Component {
   render() {
     return (
-      <div className='instructions' style={this.props.night?{backgroundColor:"#000",color:"#fff"}:{}}>
+      <div className={this.props.night?("instructions night"):("instructions")}>
         <h1>Instructions</h1>
         <div className="instruction-cards">
             <div className="instruction-card">
