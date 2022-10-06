@@ -4,6 +4,7 @@ import {Routes,Route} from "react-router-dom"
 import Layout from './components/Layout';
 import Popular from './components/Popular';
 import Battle from './components/Battle';
+import Result from './components/Result';
 import NoPage from './components/NoPage';
 import fetch from 'node-fetch';
 export default class App extends Component {
@@ -110,7 +111,9 @@ this.fetchData(this.state.activeButton)
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Popular activeButton={this.state.activeButton} toggleActive={this.toggleActive} data={this.state.fetcheddata}/>}/>
-            <Route path="battle" form1Data={this.state.form1Data} form2Data={this.state.form2Data} element={<Battle removeModal={this.removeModal} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
+            <Route path="battle" element={<Battle removeModal={this.removeModal} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}>
+              <Route path="results" element={<Result/>}/>
+            </Route>
             <Route path="*" element={<NoPage/>}/>
           </Route>
         </Routes>
@@ -118,3 +121,4 @@ this.fetchData(this.state.activeButton)
     )
   }
 }
+// form1Data={this.state.form1Data} form2Data={this.state.form2Data}

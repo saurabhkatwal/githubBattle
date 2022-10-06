@@ -14,7 +14,7 @@ export default class InputInfo extends Component {
           {this.props.displayModal2?<UserModal modalNo="Two" removeModal={this.props.removeModal} userData={this.props.user2Obj}/>:<Form submitHandler={this.props.submitHandler} handleChange={this.props.handleChange} form2Empty={this.props.form2Empty}  player="Two"/>}
         </div>
         </div>
-        
+        {this.props.displayModal1&&this.props.displayModal2?<div className='battle-btn'><a>Battle</a></div>:""}
         </div>
     )
   }
