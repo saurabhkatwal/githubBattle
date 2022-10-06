@@ -19,7 +19,7 @@ export default class Layout extends Component {
             <NavLink style={this.NavLinkStyles}to="/battle">Battle</NavLink>
           </li>
         </ul>
-        <div className='night'><i class="fa-solid fa-lightbulb fa-2x"></i></div>
+        <div className='night' onClick={this.props.nightMode}><i style={this.props.night?{color:"yellow"}:{color:""}}class="fa-solid fa-lightbulb fa-2x"></i></div>
       </nav>
 
       <Outlet />
