@@ -17,8 +17,20 @@ export default class App extends Component {
       form1Empty:true,
       form2Empty:true,
       form1Data:"",
-      form2Data:""
+      form2Data:"",
+      displayModal1:false,
+      displayModal2:false,
+      user1Obj:{},
+      user2Obj:{},
+      user1avatar:'',
+      user2avatar:''
     }
+  }
+  fetchUser=async(userName)=>{
+    console.log(userName)
+    let response=await fetch(`https://api.github.com/users/${userName}`)
+    let data=await response.json();
+    return data;
   }
   handleChange=(e)=>{
     let formName=e.target.parentElement.parentElement.className;
@@ -34,8 +46,9 @@ export default class App extends Component {
     }
     else{
       if(formName==="One"){
-        this.setState({form1Empty:false})
-        this.setState({form1Data:e.target.value})
+        this.setState({form1Empty:false});
+        this.setState({form1Data:e.target.value});
+        
       }
       else{
         this.setState({form2Empty:false})
@@ -43,16 +56,29 @@ export default class App extends Component {
       }
     }}
 
-    submitHandler=(e)=>{
+    submitHandler=async(e)=>{
       e.preventDefault();
-      console.log(e.target.className)
-      console.log(e.target)
+      console.log(e.target.className);
+      let formName=e.target.className;
+      if(formName==="One"){
+        console.log(this.state.form1Data);
+        let user1data=await this.fetchUser(this.state.form1Data);
+        console.log(user1data)
+        this.setState({user1Obj:user1data})
+        this.setState({displayModal1:true})
+      }
+      else{
+        console.log(this.state.form2Data);
+        let user2data= await this.fetchUser(this.state.form2Data);
+        this.setState({user2Obj:user2data})
+        this.setState({displayModal2:true})
+      }
     }
   toggleActive=(e)=>{
     this.fetchData(e.target.textContent.toLowerCase())
     this.setState({activeButton:e.target.textContent.toLowerCase()})
 }
-fetchData=async(language)=>{
+fetchData=(language)=>{
   fetch(`https://api.github.com/search/repositories?q=stars:%3E1+language:${language}&sort=stars&order=desc&type=Repositories`)
   .then(res=>res.json())
   .then(data=>{
@@ -73,7 +99,7 @@ this.fetchData(this.state.activeButton)
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Popular activeButton={this.state.activeButton} toggleActive={this.toggleActive} data={this.state.fetcheddata}/>}/>
-            <Route path="battle" element={<Battle submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
+            <Route path="battle" form1Data={this.state.form1Data} form2Data={this.state.form2Data} element={<Battle user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
             <Route path="*" element={<NoPage/>}/>
           </Route>
         </Routes>

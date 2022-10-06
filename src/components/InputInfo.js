@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Form from './Form'
+import UserModal from './UserModal'
 export default class InputInfo extends Component {
   render() {
     return (
@@ -7,10 +8,10 @@ export default class InputInfo extends Component {
         <h1>Players</h1>
         <div className="inputs">
         <div className="input-1 battle-input">
-            <Form submitHandler={this.props.submitHandler} handleChange={this.props.handleChange} form1Empty={this.props.form1Empty}  player="One"/>
+          {this.props.displayModal1?<UserModal userData={this.props.user1Obj}/>:<Form submitHandler={this.props.submitHandler} handleChange={this.props.handleChange} form1Empty={this.props.form1Empty}  player="One"/>}
         </div>
         <div className="input-2 battle-input">
-            <Form submitHandler={this.props.submitHandler} handleChange={this.props.handleChange} form2Empty={this.props.form2Empty}  player="Two"/>
+          {this.props.displayModal2?<UserModal userData={this.props.user2Obj}/>:<Form submitHandler={this.props.submitHandler} handleChange={this.props.handleChange} form2Empty={this.props.form2Empty}  player="Two"/>}
         </div>
         </div>
         
