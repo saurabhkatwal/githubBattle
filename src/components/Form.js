@@ -9,7 +9,7 @@ export default class Form extends Component {
   render() {
     return (
       <div className='form'>
-        <form className={this.props.player} action="">
+        <form onSubmit={this.props.submitHandler} className={this.props.player} action="">
             <label htmlFor="">Player {this.props.player}</label>
             <div className="form-input">
             <input onChange={this.props.handleChange} type="text" placeholder='github username'/>

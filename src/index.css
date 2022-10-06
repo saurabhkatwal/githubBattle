@@ -160,3 +160,7 @@ form button{
   background-color: #000;
   color: #fff;
 }
+button:disabled{
+  background-color: #ebebeb;
+  color: #888;
+}
