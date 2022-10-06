@@ -130,7 +130,7 @@ this.fetchData(this.state.activeButton)
             <Route index element={<Popular night={this.state.night} activeButton={this.state.activeButton} toggleActive={this.toggleActive} data={this.state.fetcheddata}/>}/>
             <Route path="battle" element={<Battle night={this.night} removeModal={this.removeModal} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
             <Route path="results" element={<Result night={this.night} resetData={this.resetData} user1Score={this.state.user1Score} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj}/>}/>
-            <Route path="*" element={<NoPage/>}/>
+            <Route path="*" element={<NoPage night={this.state.night}/>}/>
           </Route>
         </Routes>
       </>

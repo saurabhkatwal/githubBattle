@@ -6,8 +6,9 @@ export default class Battle extends Component {
   render() {
     return (
       <div className='battle'>
-        <Instructions/>
-        <InputInfo 
+        <Instructions night={this.props.night}/>
+        <InputInfo
+        night={this.props.night} 
         removeModal={this.props.removeModal}
         user1Obj={this.props.user1Obj} 
         user2Obj={this.props.user2Obj} 

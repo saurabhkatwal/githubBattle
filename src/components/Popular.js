@@ -4,7 +4,7 @@ import Content from './Content'
 export default class Popular extends Component {
   render() {
     return (
-      <div className="popular">
+      <div style={this.props.night?{backgroundColor:"#000"}:{}}className="popular">
         <Buttons toggleActive={this.props.toggleActive} activeButton={this.props.activeButton}/>
         <Content data={this.props.data}/>
       </div>

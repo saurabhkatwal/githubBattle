@@ -4,7 +4,7 @@ export default class Result extends Component {
   render() {
     return (
         <>
-      <div class="result">
+      <div class="result" style={this.props.night?{backgroundColor:"#000",color:"#fff"}:{}}>
         <div className="user-1">
             <div className="compCard">
             <h1>{this.props.user1Score?"winner":"loser"}</h1>

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 export default class InputInfo extends Component {
   render() {
     return (
-      <div className='input-info'>
+      <div className='input-info' style={this.props.night?{backgroundColor:"#000",color:"#fff"}:{}}>
         <h1>Players</h1>
         <div className="inputs">
         <div className="input-1 battle-input">
