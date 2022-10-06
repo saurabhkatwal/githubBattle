@@ -13,7 +13,7 @@ export default class UserModal extends Component {
             </div>
         </div>
         <div className="button">
-        <button>X</button>
+        <button onClick={(e)=>this.props.removeModal(e,this.props.modalNo)}>X</button>
         </div>
       </div>
     )

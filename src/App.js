@@ -21,9 +21,7 @@ export default class App extends Component {
       displayModal1:false,
       displayModal2:false,
       user1Obj:{},
-      user2Obj:{},
-      user1avatar:'',
-      user2avatar:''
+      user2Obj:{}
     }
   }
   fetchUser=async(userName)=>{
@@ -89,7 +87,20 @@ fetchData=(language)=>{
     this.setState({fetcheddata:data.items})
   })
 }
-
+removeModal=(e,modalNo)=>{
+if(modalNo==="One"){
+  this.setState({displayModal1:false})
+  this.setState({user1Obj:{}})
+  this.setState({form1Data:""})
+  this.setState({form1Empty:true})
+}
+else{
+  this.setState({displayModal2:false})
+  this.setState({user2Obj:{}})
+  this.setState({form2Data:""})
+  this.setState({form2Empty:true})
+}
+}
 componentDidMount(){
 this.fetchData(this.state.activeButton)
 }
@@ -99,7 +110,7 @@ this.fetchData(this.state.activeButton)
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Popular activeButton={this.state.activeButton} toggleActive={this.toggleActive} data={this.state.fetcheddata}/>}/>
-            <Route path="battle" form1Data={this.state.form1Data} form2Data={this.state.form2Data} element={<Battle user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
+            <Route path="battle" form1Data={this.state.form1Data} form2Data={this.state.form2Data} element={<Battle removeModal={this.removeModal} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
             <Route path="*" element={<NoPage/>}/>
           </Route>
         </Routes>
