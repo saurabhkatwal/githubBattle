@@ -175,3 +175,50 @@ button:disabled{
 .battle-btn{
   margin-top:40px;
 }
+.compCard img{
+  width: 100px;
+}
+.result{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+  width: 70%;
+  margin: auto;
+}
+.result ul{
+  padding: 0;
+}
+.user-1,.user-2{
+  padding: 20px;
+  background-color: #ebebeb;
+  min-height: 360px;
+  min-width: 220px;
+}
+.compCard{
+  text-align: center;
+}
+.compCard ul{
+  margin: auto;
+  margin-top: 10px;
+  /* width: 70%; */
+}
+.compCard ul li i{
+  width: 40px;
+  height: 40px;
+}
+.compCard ul li{
+  display: flex;
+}
+.compCard img{
+  margin-bottom: 10px;
+}
+.reset-btn a{
+  background-color: #000;
+  color: #fff;
+  padding: 10px 40px;
+  font-size: 24px;
+}
+.reset-btn{
+  text-align: center;
+}

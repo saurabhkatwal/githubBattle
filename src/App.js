@@ -22,7 +22,8 @@ export default class App extends Component {
       displayModal1:false,
       displayModal2:false,
       user1Obj:{},
-      user2Obj:{}
+      user2Obj:{},
+      user1Score:(Math.random()*10>4)
     }
   }
   fetchUser=async(userName)=>{
@@ -102,6 +103,14 @@ else{
   this.setState({form2Empty:true})
 }
 }
+resetData=()=>{
+this.setState({user1Obj:{}})
+this.setState({user2Obj:{}})
+this.setState({displayModal1:false})
+this.setState({displayModal2:false})
+this.setState({form1Data:""})
+this.setState({form2Data:""})
+}
 componentDidMount(){
 this.fetchData(this.state.activeButton)
 }
@@ -111,9 +120,8 @@ this.fetchData(this.state.activeButton)
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Popular activeButton={this.state.activeButton} toggleActive={this.toggleActive} data={this.state.fetcheddata}/>}/>
-            <Route path="battle" element={<Battle removeModal={this.removeModal} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}>
-              <Route path="results" element={<Result/>}/>
-            </Route>
+            <Route path="battle" element={<Battle removeModal={this.removeModal} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj} displayModal1={this.state.displayModal1} displayModal2={this.state.displayModal2} submitHandler={this.submitHandler} handleChange={this.handleChange}form1Empty={this.state.form1Empty} form2Empty={this.state.form2Empty} player1={this.state.player1} player2={this.state.player2}/>}/>
+            <Route path="results" element={<Result resetData={this.resetData} user1Score={this.state.user1Score} user1Obj={this.state.user1Obj} user2Obj={this.state.user2Obj}/>}/>
             <Route path="*" element={<NoPage/>}/>
           </Route>
         </Routes>
